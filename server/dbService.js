@@ -73,6 +73,54 @@ class DbService {
       console.log(error);
     }
   }
+
+  // Delete database table row by ID function
+  async deleteRowByID(id) {
+    try {
+      id = parseInt(id, 10);
+      const response = await new Promise((resolve, reject) => {
+        // Which row to delete from database table query selector
+        const query = "DELETE FROM names WHERE id = ?";
+
+        // making the query to delete table row
+        connection.query(query, [id], (err, result) => {
+          // checking if there is any error
+          if (err) reject(new Error(err.message));
+          // if no error, then sending result back
+          resolve(result.affectedRows);
+        });
+      });
+      // console.log(response);
+      return response === 1 ? true : false;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+
+  // Update name into database table function
+  async updateNameByID(id, name) {
+    try {
+      id = parseInt(id, 10);
+      const response = await new Promise((resolve, reject) => {
+        // Which name to update from database table query selector
+        const query = "UPDATE names SET name = ? WHERE id = ?;";
+
+        // making the query to update the name given as input
+        connection.query(query, [name, id], (err, result) => {
+          // checking if there is any error
+          if (err) reject(new Error(err.message));
+          // if no error, then sending result back
+          resolve(result.affectedRows);
+        });
+      });
+      // console.log(response);
+      return response === 1 ? true : false;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
 }
 
 module.exports = DbService;
