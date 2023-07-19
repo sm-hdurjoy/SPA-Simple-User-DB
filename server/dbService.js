@@ -121,6 +121,26 @@ class DbService {
       return false;
     }
   }
+
+  // Search a user from the database table function
+  async searchUserByName(name) {
+    try {
+      const response = await new Promise((resolve, reject) => {
+        // Get all data from database table query selector
+        const query = "SELECT * FROM names WHERE name = ?;";
+
+        // making the query to the database to get data in result parameter
+        connection.query(query, [name], (err, result) => {
+          if (err) reject(new Error(err.message));
+          resolve(result);
+        });
+      });
+      // console.log(response);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = DbService;

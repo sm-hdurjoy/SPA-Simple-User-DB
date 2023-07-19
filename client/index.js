@@ -76,6 +76,16 @@ updateBTN.onclick = function (event) {
 
 // Grabing the Add button from DOM
 const addBTN = document.querySelector("#add-name-btn");
+// Grabing the search button from DOM
+const searchBTN = document.querySelector("#search-btn");
+
+// Search button click listener and fetch call to search
+searchBTN.onclick = function () {
+  const searchValue = document.querySelector('#search-input').value;
+  fetch("http://localhost:5000/search/"+searchValue)
+    .then((response) => response.json()) // calling loadHTMLTable load the data gotten from response
+    .then((data) => loadHTMLTable(data["data"]));
+}
 
 // Add button onClick function called
 addBTN.onclick = function () {
@@ -100,6 +110,7 @@ addBTN.onclick = function () {
 // Function to insert rows and collumn with data returned by insertNewName
 function insertIntoRowTable(data) {
   // Grabbing table from DOM
+  console.log(data);
   const table = document.querySelector("table tbody");
   const isTableEmpty = document.querySelector(".no data");
   let tableHtml = "<tr>";

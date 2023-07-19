@@ -22,10 +22,12 @@ app.post("/insert", (request, response) => {
 
   // Calling the function to insert data into database
   const result = db.insertNewName(name);
+  // console.log(result);
 
   result
     .then((data) => response.json({ data: data }))
     .catch((err) => console.log(err));
+  // console.log(data);
 });
 
 // Read or getting all data from database when page loads
@@ -41,7 +43,7 @@ app.get("/getAll", (request, response) => {
     .catch((err) => console.log(err));
 });
 
-// Update
+// Update a name from the table and update database
 app.patch("/update", (request, response) => {
   // console.log(request.body);
   const { id, name } = request.body;
@@ -56,7 +58,7 @@ app.patch("/update", (request, response) => {
     .catch((err) => console.log(err));
 });
 
-// Delete
+// Delete a user from the table by ID
 app.delete("/delete/:id", (request, response) => {
   // console.log(request.params);
   const { id } = request.params;
@@ -67,6 +69,19 @@ app.delete("/delete/:id", (request, response) => {
 
   result
     .then((data) => response.json({ success: data }))
+    .catch((err) => console.log(err));
+});
+
+// Search a user from the table
+app.get("/search/:name", (request, response) => {
+  const { name } = request.params;
+  const db = dbService.getDBServiceInstance();
+
+  // Calling the function to search table by name from database
+  const result = db.searchUserByName(name);
+
+  result
+    .then((data) => response.json({ data: data }))
     .catch((err) => console.log(err));
 });
 
