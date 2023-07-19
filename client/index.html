@@ -9,9 +9,8 @@
   <body>
     <main>
       <label>Name: </label>
-      <input type="text" id="name-input" />
+      <input type="text" id="name-input" placeholder="Enter a Name to The List"/>
       <button id="add-name-btn">Add Name</button>
-
       <br /><br /><br />
       <div>
         <input placeholder="Search By Name" id="search-input" />
@@ -28,6 +27,12 @@
         </thead>
         <tbody></tbody>
       </table>
+
+      <section hidden id="update-row">
+        <label>Name : </label>
+        <input type="text" id="update-name-input" placeholder="Enter Name..."/>
+        <button id="update-row-btn">Update</button>
+      </section>
     </main>
     <script src="./index.js"></script>
   </body>
