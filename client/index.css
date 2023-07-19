@@ -1,20 +1,140 @@
+/* Import Comfortaa font using @font-face */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+body {
+  font-family: 'Comfortaa', Arial, sans-serif;
+  background-image: linear-gradient(180deg, #66ccff, #00cc99); /* Blue to Green Gradient */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 main {
-  width: 60%;
-  margin: 50px auto;
+  font-family: 'Comfortaa', Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.9); /* 90% transparent white */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Style the Name input and Add Name button container */
+.name-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#name-input,
+#add-name-btn {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+#name-input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+#add-name-btn {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.3;
+}
+
+#add-name-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Style the Search input and Search button */
+#search-input,
+#search-btn {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+#search-input {
+  width: 70%;
+  margin-right: 10px;
+}
+
+#search-btn {
+  background-color: #17a2b8;
+  color: #fff;
+  cursor: pointer;
+}
+
+#search-btn:hover {
+  background-color: #117a8b;
+}
+
+/* Style the table */
+#table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+#table th,
+#table td {
+  padding: 10px;
   text-align: center;
 }
 
-table {
-  margin: 50px auto;
+#table th {
+  background-color: #007bff;
+  color: #fff;
 }
 
-table,
-th,
-td {
-  border-collapse: collapse;
-  border: 2px solid black;
+#table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
 }
 
-th, td {
-  padding: 8px;
+#table tbody tr:hover {
+  background-color: #d9d9d9;
+}
+
+/* Style the Update section */
+#update-row {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#update-name-input,
+#update-row-btn {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+#update-name-input {
+  width: 70%;
+  margin-right: 10px;
+}
+
+#update-row-btn {
+  background-color: #28a745;
+  color: #fff;
+  cursor: pointer;
+}
+
+#update-row-btn:hover {
+  background-color: #1a682c;
+}
+
+/* Hide the Update section by default */
+#update-row[hidden] {
+  display: none;
 }
